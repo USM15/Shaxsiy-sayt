@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sharofiddin — shaxsiy sayt</title>
+<meta name="description" content="Sharofiddinning shaxsiy sayti.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg1:#EAF0FB;--bg2:#F6F1FB;--ink:#10192E;--muted:#55627A;--accent:#1F4FD8;--tq:#12A5A2;
+  --glass:rgba(255,255,255,.52);--edge:rgba(255,255,255,.75);--shadow:0 10px 40px rgba(31,79,216,.12);
+  --b1:#7FA2FF;--b2:#5ED3D0;--b3:#C9A8FF;--bo:.65;
+  --head:"Bricolage Grotesque","SF Pro Display","Segoe UI",system-ui,sans-serif;
+  --body:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",system-ui,sans-serif;
+  box-sizing:border-box;padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg1:#0A101F;--bg2:#120F26;--ink:#EAF0FB;--muted:#9AA7BD;--accent:#8EAEFF;--tq:#4FD6D2;
+    --glass:rgba(28,38,66,.42);--edge:rgba(255,255,255,.14);--shadow:0 10px 40px rgba(0,0,0,.35);
+    --b1:#2A4BD6;--b2:#12908E;--b3:#6B3FD4;--bo:.5;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg1:#0A101F;--bg2:#120F26;--ink:#EAF0FB;--muted:#9AA7BD;--accent:#8EAEFF;--tq:#4FD6D2;
+  --glass:rgba(28,38,66,.42);--edge:rgba(255,255,255,.14);--shadow:0 10px 40px rgba(0,0,0,.35);
+  --b1:#2A4BD6;--b2:#12908E;--b3:#6B3FD4;--bo:.5;color-scheme:dark;
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 5rem);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;min-height:100vh;background:linear-gradient(160deg,var(--bg1),var(--bg2));color:var(--ink);font-family:var(--body);font-size:1.02rem;line-height:1.65;overflow-x:hidden}
+.blobs{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.blobs i{position:absolute;border-radius:50%;filter:blur(70px);opacity:var(--bo);animation:float 20s ease-in-out infinite alternate}
+.blobs i:nth-child(1){width:46vmax;height:46vmax;background:var(--b1);top:-14vmax;left:-10vmax}
+.blobs i:nth-child(2){width:38vmax;height:38vmax;background:var(--b2);top:30vh;right:-14vmax;animation-delay:-7s}
+.blobs i:nth-child(3){width:34vmax;height:34vmax;background:var(--b3);bottom:-12vmax;left:18vw;animation-delay:-13s}
+@keyframes float{to{transform:translate(6vmax,5vmax) scale(1.12)}}
+.wrap{max-width:48rem;margin:0 auto;padding:0 1.1rem}
+.glass{background:var(--glass);border:1px solid var(--edge);border-radius:28px;box-shadow:var(--shadow),inset 0 1px 0 var(--edge);-webkit-backdrop-filter:blur(26px) saturate(180%);backdrop-filter:blur(26px) saturate(180%)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass{background:var(--bg1)}}
+a{color:inherit;text-decoration:none}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--tq);outline-offset:3px}
+nav.pill{position:sticky;top:calc(env(safe-area-inset-top,0px) + .75rem);z-index:5;display:flex;justify-content:space-between;align-items:center;gap:.5rem;margin:.75rem auto 0;padding:.45rem .5rem .45rem 1.1rem;border-radius:999px;font-family:var(--head);font-weight:600;font-size:.95rem}
+nav.pill .logo{font-weight:800;letter-spacing:-.01em}
+nav.pill div{display:flex;gap:.15rem}
+nav.pill div a{padding:.45rem .8rem;border-radius:999px;color:var(--muted);transition:background .25s,color .25s}
+nav.pill div a:hover{background:var(--edge);color:var(--ink)}
+.hero{margin-top:1.5rem;padding:clamp(2rem,8vw,4rem) clamp(1.4rem,6vw,3rem)}
+.hero h1{margin:0;font-family:var(--head);font-weight:800;font-size:clamp(2.7rem,13vw,6.5rem);line-height:1;letter-spacing:-.04em;overflow-wrap:anywhere;background:linear-gradient(120deg,var(--accent),var(--tq),var(--accent));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 8s ease-in-out infinite alternate}
+@keyframes shine{to{background-position:100% 0}}
+.hero p{margin:1.1rem 0 1.6rem;font-size:1.2rem;color:var(--muted);max-width:30rem}
+.btns{display:flex;flex-wrap:wrap;gap:.7rem}
+.btn{padding:.75rem 1.3rem;border-radius:999px;font-weight:600;border:1px solid var(--edge);background:var(--glass);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+.btn.main{background:linear-gradient(120deg,var(--accent),var(--tq));color:#fff;border-color:transparent}
+.btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:var(--shadow)}
+section{margin-top:2.5rem}
+h2{margin:0 0 1rem .4rem;font-family:var(--head);font-weight:800;font-size:1.7rem;letter-spacing:-.02em}
+.card{padding:1.6rem clamp(1.2rem,5vw,2rem)}
+.card p{margin:0 0 .9rem;max-width:36rem}
+.card p:last-child{margin-bottom:0}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem}
+.chips span{padding:.4rem .9rem;border-radius:999px;border:1px solid var(--edge);background:var(--glass);font-size:.9rem;font-weight:500}
+.post{margin-bottom:.8rem;padding:0 clamp(1.2rem,5vw,2rem);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.post:hover{transform:translateY(-2px)}
+.post summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:.15rem 1rem;padding:1.2rem 0}
+.post summary::-webkit-details-marker{display:none}
+.post summary::after{content:"+";grid-row:1/3;grid-column:2;align-self:center;display:grid;place-items:center;width:2rem;height:2rem;border-radius:50%;background:var(--edge);font-family:var(--head);font-size:1.3rem;transition:transform .35s}
+.post[open] summary::after{transform:rotate(135deg)}
+.post time{font-size:.85rem;color:var(--muted)}
+.post h3{margin:0;font-family:var(--head);font-weight:800;font-size:1.25rem;line-height:1.25;letter-spacing:-.01em}
+.post .txt{padding:0 0 1.3rem;max-width:36rem;animation:open .45s cubic-bezier(.2,.8,.2,1)}
+.post .txt p{margin:0 0 .8rem}
+@keyframes open{from{opacity:0;transform:translateY(-8px)}}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:.8rem}
+.tile{display:flex;align-items:center;gap:.85rem;padding:1rem 1.1rem;border-radius:22px;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.tile:hover{transform:translateY(-4px) scale(1.015)}
+.tile b{display:grid;place-items:center;flex:none;width:2.6rem;height:2.6rem;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--tq));color:#fff;font-family:var(--head)}
+.tile span{display:block;line-height:1.3}
+.tile small{display:block;color:var(--muted)}
+.contact a{color:var(--accent);font-weight:600}
+footer{padding:2rem 0 3rem;text-align:center;color:var(--muted);font-size:.9rem}
+.js .rv{opacity:0;transform:translateY(28px) scale(.98);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .blobs i,.hero h1,.post .txt{animation:none}
+  .js .rv{opacity:1;transform:none;transition:none}
+  .btn,.tile,.post{transition:none}
+}
+</style>
+</head>
+<body>
+<div class="blobs" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="wrap">
+  <nav class="pill glass" aria-label="Bo‘limlar">
+    <a class="logo" href="#top">sharafiddin.uz</a>
+    <div>
+      <a href="#haqimda">Haqimda</a>
+      <a href="#tarmoqlar">Tarmoqlar</a>
+      <a href="#aloqa">Aloqa</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <div class="hero glass rv">
+      <h1>Sharofiddin</h1>
+      <p>NamDPI Raqamli ta’lim texnologiyalar markazining ijtimoiy tarmoqlarini yuritaman.</p>
+      <div class="btns">
+        <a class="btn main" href="#tarmoqlar">Markaz tarmoqlari</a>
+        <a class="btn" href="https://t.me/USM_15">Telegram kanal</a>
+      </div>
+    </div>
+
+    <section id="haqimda" class="rv">
+      <h2>Men haqimda</h2>
+      <div class="card glass">
+        <p>Salom! Men Sharofiddinman. NamDPI Raqamli ta’lim texnologiyalar markazining veb-sayti, Telegram, Instagram va YouTube sahifalarini yuritaman.</p>
+        <p>Raqamli ta’lim va kontent yuritish men uchun kundalik ish. Quyida markazning rasmiy sahifalari va aloqa ma’lumotlari.</p>
+        <div class="chips"><span>NamDPI</span><span>Raqamli ta’lim</span><span>Kontent</span><span>Oʻzbek tilida</span></div>
+      </div>
+    </section>
+
+    <section id="tarmoqlar" class="rv">
+      <h2>Markaz tarmoqlari</h2>
+      <div class="grid">
+        <a class="tile glass" href="https://namspi.uz"><b>W</b><span>Veb-sayt<small>namspi.uz</small></span></a>
+        <a class="tile glass" href="https://t.me/USM_15"><b>T</b><span>Telegram<small>@USM_15</small></span></a>
+        <a class="tile glass" href="https://www.instagram.com/namdpi.uz"><b>I</b><span>Instagram<small>namdpi.uz</small></span></a>
+        <a class="tile glass" href="https://www.youtube.com/@namdpi_rttm"><b>Y</b><span>YouTube<small>namdpi_rttm</small></span></a>
+        <a class="tile glass" href="https://qk.namspi.uz"><b>Q</b><span>Qoʻshimcha kvalifikatsiya<small>qk.namspi.uz</small></span></a>
+      </div>
+    </section>
+
+    <section id="aloqa" class="contact rv">
+      <h2>Aloqa</h2>
+      <div class="card glass">
+        <p>Savol yoki taklifingiz boʻlsa, yozing:</p>
+        <p><a href="mailto:usmonovsharofiddin0@gmail.com">usmonovsharofiddin0@gmail.com</a></p>
+      </div>
+    </section>
+  </main>
+  <footer>© 2026 sharafiddin.uz</footer>
+</div>
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
